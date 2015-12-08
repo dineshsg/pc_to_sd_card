@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+<div class="data">    
+    <span>
+    <input name="employee" type="checkbox" value="Alex"/>
+    <label for="employee">Alex</label>
+    </span> 
+
+    <span>
+    <input name="employee" type="checkbox" value="Frank"/>
+    <label for="employee">Frank</label>
+    </span>    
+
+    <span>
+    <input name="employee" type="checkbox" value="Mark"/>
+    <label for="employee">Mark</label>
+    </span>
+
+    <input type="button" onclick="getCheckedCheckboxesFor('employee');" value="Get Values" />
+
+<script type="text/javascript">
+function getCheckedCheckboxesFor(checkboxName) {
+    var checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked'), values = [];
+    Array.prototype.forEach.call(checkboxes, function(el){
+        values.push(el.value);
+    });
+	alert(values);
+    return values;
+}
+</script>
+</div>
+</body>
+</html>

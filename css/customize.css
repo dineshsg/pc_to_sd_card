@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin:0; padding:0; font-family:Verdana, Geneva, sans-serif; color:#000;}
+img { max-width: 100%;}
+p{line-height:24px; margin-bottom:8px;}
+li{list-style:none;}
+.clearfix {*zoom: 1;}
+.clearfix:before, .clearfix:after { display: table; content: ""; line-height: 0; }
+.clearfix:after {clear: both;}
+:hover{-webkit-transition: all 0.5s ease-in-out;-moz-transition: all 0.5s ease-in-out;-o-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;}
+ul { margin: 0; padding: 0; list-style: none; }
+a {text-decoration: none;}
+.logo {box-sizing: border-box;height: 100%;padding: 3px 5px;text-align: center;}
+.header{background-color:#fe0000; height:10%;position:fixed;left:0;right:0;top:0;}
+.logo img {height: 100%;}
+.page-content {padding: 0 5px; position:relative; z-index:9;}
+.select-file{height:100%; box-sizing:border-box; padding:30px 0 20px 0;}
+.select-file ul{overflow-y: scroll; height:74%;}
+.select-file ul li {border-bottom: 1px solid #eee;float: left;margin-bottom: 18px;padding-bottom: 18px;text-align: center;width: 33.32%;}
+.li-bg{background-image:url(../images/file.png); background-repeat:no-repeat; height:39px; width:30px; display:inline-block;}
+.select-file .checkbox {float: right;height:17px;margin:14px 7px; width:17px;cursor:pointer; background:transparent;}
+.file-name{display:block; font-size:12px; margin-top:3px;}
+.copy-reset-btn{float:right;}
+.copy-reset-btn .buttons,.buttons{background-color:#fe0000; padding:5px 10px; color:#fff; border:none; display:inline-block; font-weight:bold; cursor:pointer;margin-left:4px;float:right;}
+.device-folders{height:75%; width:100%;float:left;overflow-y:scroll;}
+.folder-name {height:100%;}
+.folder-name a {background-color: #fff;color: #555;display: block;font-size: 13px;margin-bottom:2px;padding:8px 6px;}
+.footer{background-color:#fe0000; height:10%; color:#fff; padding:10px 10px; font-size:12px; text-align:center; box-sizing:border-box; position:fixed; z-index:9;width:100%;bottom:0;left:0;}
+.select-file .checkbox {background-color: blue;}
+h1 {border-bottom: 1px solid #ddd;color: #555;font-size: 16px;font-weight: normal;margin: 0 0 12px;padding: 0 0 4px;}
+h2 {border-bottom: 1px solid #ddd;color: #555;font-size: 16px;font-weight: normal;margin:3px 0 20px;padding: 0 0 4px; float:left;}
+.folder-grp {background-color: #ededed;padding:10px;}
+/*.copy{float:right !important;}*/
+
+@media (max-width: 320px) {
+.select-file {height: 30%;}
+}
