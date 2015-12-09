@@ -25,12 +25,30 @@
 			foreach($items as $key => $cell){
 				foreach($cell as $kk => $vv){
 					if($kk=='filename'){
+						if($count==0){
+							$temp_url = $dir_name."/".$vv;
+							$b = '';
+        					$links = explode('/',rtrim($temp_url,'/'));
+							echo "<div class='breadcrumb'>";
+					        foreach($links as $l){
+					            $b .= $l;
+					            if($url == $b){
+					                echo $l;
+					            }else{
+					                echo "<a href='system_access.php?dir_name=".$b."'>".$l."&nbsp;&nbsp;>></a>";
+            					}
+					            $b .= '/';
+         					}
+							echo "</div>";
+							$count++;
+						}
+						else{}
 						if(is_dir($dir_name."/".$vv)){
 							echo "<li>
-									<span class='li-bg'>
+									<span class='li-folder'>
 										<input type='checkbox' name='employee' class='checkbox' value='".$dir_name.'/'.$vv."' />
 									</span>
-									<a href='#'><label class='file-name' for='employee'> ".(strlen($vv)>15?substr($vv,0,15).'...':$vv)." </label></a>
+									<a href=\"system_access.php?dir_name=".$dir_name."/".$vv."\"><label class='file-name' for='employee'> ".(strlen($vv)>15?substr($vv,0,15).'...':$vv)." </label></a>
 								  </li>";
 						}
 						else{
@@ -48,7 +66,7 @@
 			echo '</ul>';
 		}
 		else{
-			echo "<div>No More Directories</div>";
+			echo "<div style='clear:both;'>No More Directories</div>";
 		}
 		echo "<input type='button' class='buttons copy' onClick='getCheckedCheckboxesFor(\"employee\");' value='Copy' />";
 ?>

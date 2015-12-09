@@ -30,6 +30,24 @@
 			foreach($items as $key => $cell){
 				foreach($cell as $kk => $vv){
 					if($kk=='filename'){
+						if($count==0){
+							$temp_url = $dir_name."/".$vv;
+							$b = '';
+        					$links = explode('/',rtrim($temp_url,'/'));
+							echo "<div class='breadcrumb'>";
+					        foreach($links as $l){
+					            $b .= $l;
+					            if($url == $b){
+					                echo $l;
+					            }else{
+					                echo "<a href='system_access.php?dir_name=".$b."'>".$l."&nbsp;&nbsp;>></a>";
+            					}
+					            $b .= '/';
+         					}
+							echo "</div>";
+							$count++;
+						}
+						else{}
 						if(is_dir($dir_name.'/'.$vv)){
 							echo "<a href='media_access.php?dir_name=$dir_name/$vv'>$vv</a>";
 						}
@@ -42,7 +60,7 @@
 		echo "</div></div>";
 		}
 		else{
-			echo "<div>No More Directories</div>";
+			echo "<div style='clear:both;'>No More Directories</div>";
 		}
 		echo $temp;
 ?>

@@ -18,10 +18,11 @@ a {text-decoration: none;}
 .select-file ul{overflow-y: scroll; height:74%;}
 .select-file ul li {border-bottom: 1px solid #eee;float: left;margin-bottom: 18px;padding-bottom: 18px;text-align: center;width: 33.32%;}
 .li-bg{background-image:url(../images/file.png); background-repeat:no-repeat; height:39px; width:30px; display:inline-block;}
+.li-folder{background-image:url(../images/folder.png); background-repeat:no-repeat; height:39px; width:34px; display:inline-block;}
 .select-file .checkbox {float: right;height:17px;margin:14px 7px; width:17px;cursor:pointer; background:transparent;}
 .file-name{display:block; font-size:12px; margin-top:3px;}
 .copy-reset-btn{float:right;}
-.copy-reset-btn .buttons,.buttons{background-color:#fe0000; padding:5px 10px; color:#fff; border:none; display:inline-block; font-weight:bold; cursor:pointer;margin-left:4px;float:right;}
+.copy-reset-btn .buttons,.buttons{background-color:#fe0000; padding:5px 10px; color:#fff; border:none; display:inline-block; font-weight:bold; cursor:pointer;margin-right:22px;float:right;margin-top:3px;}
 .device-folders{height:75%; width:100%;float:left;overflow-y:scroll;}
 .folder-name {height:100%;}
 .folder-name a {background-color: #fff;color: #555;display: block;font-size: 13px;margin-bottom:2px;padding:8px 6px;}
@@ -31,7 +32,9 @@ h1 {border-bottom: 1px solid #ddd;color: #555;font-size: 16px;font-weight: norma
 h2 {border-bottom: 1px solid #ddd;color: #555;font-size: 16px;font-weight: normal;margin:3px 0 20px;padding: 0 0 4px; float:left;}
 .folder-grp {background-color: #ededed;padding:10px;}
 /*.copy{float:right !important;}*/
-
+.breadcrumb{border-bottom: 1px solid #EEE;z-index: 10;width:100%;margin-bottom:10px;}
+.breadcrumb a{font-size: 12px;padding: 6px 8px;display: inline-block;}
+.breadcrumb a:active{font-color:red;}
 @media (max-width: 320px) {
 .select-file {height: 30%;}
 }
