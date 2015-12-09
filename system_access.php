@@ -29,6 +29,7 @@
 							$temp_url = $dir_name."/".$vv;
 							$b = '';
         					$links = explode('/',rtrim($temp_url,'/'));
+							array_pop($links);
 							echo "<div class='breadcrumb'>";
 					        foreach($links as $l){
 					            $b .= $l;
@@ -46,7 +47,7 @@
 						if(is_dir($dir_name."/".$vv)){
 							echo "<li>
 									<span class='li-folder'>
-										<input type='checkbox' name='employee' class='checkbox' value='".$dir_name.'/'.$vv."' />
+										<input type='checkbox' name='employee' class='checkbox folder' value='".$dir_name.'/'.$vv."' />
 									</span>
 									<a href=\"system_access.php?dir_name=".$dir_name."/".$vv."\"><label class='file-name' for='employee'> ".(strlen($vv)>15?substr($vv,0,15).'...':$vv)." </label></a>
 								  </li>";
@@ -54,7 +55,7 @@
 						else{
 							echo "<li>
 									<span class='li-bg'>
-										<input type='checkbox' name='employee' class='checkbox' value='".$dir_name.'/'.$vv."' />
+										<input type='checkbox' name='employee' class='checkbox file' value='".$dir_name.'/'.$vv."' />
 									</span>
 									<label class='file-name' for='employee'> ".(strlen($vv)>15?substr($vv,0,15).'...':$vv)." </label>
 								  </li>";
@@ -72,15 +73,35 @@
 ?>
 </div>
 </body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript">
 function getCheckedCheckboxesFor(checkboxName) {
     var checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked'), values = [];
     Array.prototype.forEach.call(checkboxes, function(el){
         values.push(el.value);
     });
-	//return values;
     media_url = window.top.media.document.getElementById("media_url").value;
 	window.location="transfer.php?system_path='"+values+"'&media_path='"+media_url+"'";
 }
+
+$(document).ready(function() {
+$(".file").change(function() {
+    if(this.checked) {
+     $(this).parent('span').css('background-image', 'url(images/file-hover.png)');
+    }
+	else{
+	 $(this).parent('span').css('background-image', 'url(images/file.png)');
+	}
+});
+$(".folder").change(function() {
+    if(this.checked) {
+     $(this).parent('span').css('background-image', 'url(images/folder-hover.png)');
+    }
+	else{
+	 $(this).parent('span').css('background-image', 'url(images/folder.png)');
+	}
+});
+
+});
 </script>
 </html>
