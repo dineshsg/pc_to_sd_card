@@ -1,0 +1,17 @@
+<?php
+    include 'config.php';
+?>
+<!DOCTYPE xhtml PUBLIC '-//WAPFORUM//DTD XHTML Mobile 1.1//EN' 'http://www.openmobilealliance.org/tech/DTD/xhtml-mobile11.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Biscoot</title>
+<link href="css/customize.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+<frameset rows="40%,40%" frameborder='0'>
+  <frame src="system_access.php?dir_name=<?php echo $system_path; ?>" id="system" name="system" scrolling="no">
+  <frame src="media_access.php?dir_name=<?php echo $media_path; ?>" id="media" name="media" scrolling="no">
+</frameset>
+</html>

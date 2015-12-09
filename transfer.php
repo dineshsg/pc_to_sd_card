@@ -7,17 +7,18 @@
 <div id="progress" style="width:500px;border:1px solid #ccc;margin:0px auto 0px auto;"></div>
 <div id="information" style="text-align:center;"></div>
 <?php
+	include 'config.php';
 	$total = 100; 
 	$system_url = str_replace('\'', '', $_GET['system_path']);
 	$media_url = str_replace('\'', '', $_GET['media_path']);
 	$type = explode(",", $system_url);
 	foreach($type as $key => $value){
 		if(is_dir($value)){
-			echo shell_exec('sudo /var/www/bftp/root.sh d '.$value.' '.$media_url);		
+			echo shell_exec('sudo '.$doc_root.'/root.sh d '.$value.' '.$media_url);		
 			sleep(15);
 		}
 		else{
-			echo shell_exec('sudo /var/www/bftp/root.sh f '.$value.' '.$media_url);
+			echo shell_exec('sudo '.$doc_root.'/root.sh f '.$value.' '.$media_url);
 			sleep(15);
 		}
 	}

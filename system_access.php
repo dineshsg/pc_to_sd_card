@@ -63,19 +63,6 @@ function getCheckedCheckboxesFor(checkboxName) {
 	//return values;
     media_url = window.top.media.document.getElementById("media_url").value;
 	window.location="transfer.php?system_path='"+values+"'&media_path='"+media_url+"'";
-	var page = "http://localhost/bftp";
-
-	var $dialog = $('<div></div>')
-			   .html('<iframe style="border: 0px; " src="' + page + '" width="100%" height="100%"></iframe>')
-               .dialog({
-                   autoOpen: false,
-                   modal: true,
-                   height: 625,
-                   width: 500,
-                   title: "Some title"
-               });
-
 }
-$dialog.dialog('open');
 </script>
 </html>

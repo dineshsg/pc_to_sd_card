@@ -47,20 +47,6 @@
 		echo $temp;
 ?>
 </form>
-<?php
-	if($_POST['Submit']){
-		$system_url = $_GET['system_url'];
-		$media_url = $_GET['media_url'];
-		echo exec('sudo /var/www/ftp/root.sh'.$system_url." ".$media_url);
-		
-		if($output){
-			echo "Executed.........";
-		}
-		else{
-			echo "Failed.............";
-		}
-	}
-?>
 	<div class="footer">© 2015 Shotformats Digital Productions Private Limited, All Rights Reserved </div> 
 	</div>
 </body>
