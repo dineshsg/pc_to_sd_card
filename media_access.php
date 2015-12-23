@@ -23,6 +23,15 @@
 		if($dir_name!='/media'){
 			echo"<input type='button' value='Back' class='buttons' id='back'/>";
 		}
+		$filesize = count(glob('/media/sd-card/*'));
+		if($filesize <= 0)
+		{
+			echo "<input type='button' value='Connect' class='buttons' id='connect'/>";
+		}
+		else
+		{
+			echo "<input type='button' value='Disconnect' class='buttons' id='disconnect'/>";
+		}
 		echo "<input type='reset'  value='Refresh' class='buttons refresh'/></div>";
 
 		if($items){
@@ -76,6 +85,24 @@ $(document).ready(function() {
 	});
 	$( "#back" ).click(function() {
 		$(location).attr('href','media_access.php?dir_name=/media');
+	});
+	$("#connect").click(function(){
+		//$("#connect").hide();
+		//$("#disconnect").show();
+		$.ajax(
+		{
+		 url:'http://10.10.10.10:8080/bftp/media-connect.php',
+		 success:function(){alert("Hi");location.reload(true);}
+		});
+	});
+	$("#disconnect").click(function(){
+		//$("#disconnect").hide();
+		//$("#connect").show();
+		$.ajax(
+		{
+		 url:'http://10.10.10.10:8080/bftp/media-disconnect.php',
+		 success:function(){location.reload(true);}
+		});
 	});
 });
 </script>

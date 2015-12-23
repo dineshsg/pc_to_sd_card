@@ -36,7 +36,10 @@
 					            if($url == $b){
 					                echo $l;
 					            }else{
-					                echo "<a href='system_access.php?dir_name=".$b."'>".$l."&nbsp;&nbsp;>></a>";
+									if(($l!='var')&&($l!='www'))
+									{
+					                	echo "<a href='system_access.php?dir_name=".$b."'>".$l."&nbsp;&nbsp;>></a>";
+									}
             					}
 					            $b .= '/';
          					}

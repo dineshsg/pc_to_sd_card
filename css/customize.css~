@@ -13,7 +13,7 @@ a {text-decoration: none;}
 .logo {box-sizing: border-box;height: 100%;padding: 3px 5px;text-align: center;}
 .header{background-color:#fe0000; height:10%;position:fixed;left:0;right:0;top:0;}
 .logo img {height: 100%;}
-.page-content {padding: 0 5px; position:relative; z-index:9;}
+.page-content {padding: 0 5px; position:relative; z-index:9;box-sizing: border-box;}
 .select-file{height:100%; box-sizing:border-box; padding:30px 0 20px 0;}
 .select-file ul{overflow-y: scroll; height:120px;}
 .select-file ul li {border-bottom: 1px solid #eee;float: left;margin-bottom: 18px;padding-bottom: 18px;text-align: center;width: 33.32%;}

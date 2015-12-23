@@ -23,7 +23,7 @@
 		}
 	}
 	for($i=1; $i<=$total; $i++){
-		$percent = intval($i/$total * 100)."%";
+		$percent = intval($i/$total * 10000)."%";
 		echo '<script language="javascript">
 		document.getElementById("progress").innerHTML="<div style=\"width:'.$percent.';background-color:#ddd;background-image:url(images/pbar-ani.gif);\">&nbsp;</div>";
 		document.getElementById("information").innerHTML="'.$i.' % copied.";
