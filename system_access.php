@@ -36,7 +36,7 @@
 					            if($url == $b){
 					                echo $l;
 					            }else{
-									if(($l!='var')&&($l!='www'))
+									if(($l!='var')&&($l!='www')&&($l!='html'))
 									{
 					                	echo "<a href='system_access.php?dir_name=".$b."'>".$l."&nbsp;&nbsp;>></a>";
 									}
@@ -52,7 +52,7 @@
 									<span class='li-folder'>
 										<input type='checkbox' name='employee' class='checkbox folder' value='".$dir_name.'/'.$vv."' />
 									</span>
-									<a href=\"system_access.php?dir_name=".$dir_name."/".$vv."\"><label class='file-name' for='employee'> ".(strlen($vv)>15?substr($vv,0,15).'...':$vv)." </label></a>
+									<label class='file-name' for='employee'> ".$vv." </label>
 								  </li>";
 						}
 						else{
@@ -60,7 +60,7 @@
 									<span class='li-bg'>
 										<input type='checkbox' name='employee' class='checkbox file' value='".$dir_name.'/'.$vv."' />
 									</span>
-									<label class='file-name' for='employee'> ".(strlen($vv)>15?substr($vv,0,15).'...':$vv)." </label>
+									<label class='file-name' for='employee'> ".(strlen($vv)>15?substr($vv,0,10).'...':$vv)." </label>
 								  </li>";
 						}
 					}
@@ -73,8 +73,10 @@
 			echo "<div style='clear:both;'>No More Directories</div>";
 		}
 		echo "<input type='button' class='buttons copy' onClick='getCheckedCheckboxesFor(\"employee\");' value='Copy' />";
+
 ?>
 </div>
+<div class="loading_ini" id="loading_ini"><img src ="images/loading_ini.gif"><p>Transferring . . .</p></div>
 </body>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript">
@@ -83,26 +85,35 @@ function getCheckedCheckboxesFor(checkboxName) {
     Array.prototype.forEach.call(checkboxes, function(el){
         values.push(el.value);
     });
-    media_url = window.top.media.document.getElementById("media_url").value;
-	window.location="transfer.php?system_path='"+values+"'&media_path='"+media_url+"'";
+    
+    if(values.length > 0 )
+    {
+	document.getElementById('loading_ini').style.display = "block";
+	media_url = window.top.media.document.getElementById("media_url").value;
+        window.location="transfer.php?system_path='"+values+"'&media_path='"+media_url+"'";
+    }
+    else
+    {
+    }
+    
 }
 
 $(document).ready(function() {
 $(".file").change(function() {
     if(this.checked) {
-     $(this).parent('span').css('background-image', 'url(images/file-hover.png)');
+      $(this).parent('span').css('background-image', 'url(images/file-hover.png)');
     }
-	else{
-	 $(this).parent('span').css('background-image', 'url(images/file.png)');
-	}
+    else{
+      $(this).parent('span').css('background-image', 'url(images/file.png)');
+    }
 });
 $(".folder").change(function() {
     if(this.checked) {
      $(this).parent('span').css('background-image', 'url(images/folder-hover.png)');
     }
-	else{
-	 $(this).parent('span').css('background-image', 'url(images/folder.png)');
-	}
+    else{
+      $(this).parent('span').css('background-image', 'url(images/folder.png)');
+    }
 });
 
 });

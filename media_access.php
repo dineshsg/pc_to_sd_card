@@ -9,6 +9,7 @@
 	<input type="hidden" id='url' name="system_url">
 	<?php
 		include 'connect.php';
+		include 'config.php';
 		$dir_name = $_GET['dir_name'];
 		echo "<input type='hidden' id='media_url' name='media_url' value='$dir_name'>";
 		$filelist = ftp_rawlist($ftp_conn, $dir_name);
@@ -20,9 +21,10 @@
 			@$items[implode(" ", $chunks)] = $item; 
 		} 
 		echo "<div class='folder-grp clearfix'><h2> Device Folders </h2><div class='copy-reset-btn'>";
-		if($dir_name!='/media'){
+		if($dir_name!=$media_path){
 			echo"<input type='button' value='Back' class='buttons' id='back'/>";
 		}
+		//$path = realpath('/media/sd-card/');
 		$filesize = count(glob('/media/sd-card/*'));
 		if($filesize <= 0)
 		{
@@ -43,13 +45,14 @@
 							$temp_url = $dir_name."/".$vv;
 							$b = '';
         					$links = explode('/',rtrim($temp_url,'/'));
-							echo "<div class='breadcrumb'>";
+						array_pop($links);
+						echo "<div class='breadcrumb'>";
 					        foreach($links as $l){
 					            $b .= $l;
 					            if($url == $b){
 					                echo $l;
 					            }else{
-					                echo "<a href='system_access.php?dir_name=".$b."'>".$l."&nbsp;&nbsp;>></a>";
+					                echo "<a href='media_access.php?dir_name=".$b."'>".$l."&nbsp;&nbsp;>></a>";
             					}
 					            $b .= '/';
          					}
@@ -74,12 +77,13 @@
 		echo $temp;
 ?>
 </form>
-	<div class="footer">© 2015 Shotformats Digital Productions Private Limited, All Rights Reserved </div> 
+	<div class="footer">© 2015 Shotformats Digital Productions Private Limited.</div> 
 	</div>
 </body>
 <script type="text/javascript" src="js/jquery.min.js"></script> 
 <script type="text/javascript"> 
 $(document).ready(function() {
+	//$("#disconnect").hide();
 	$( ".refresh" ).click(function() {
 		location.reload(true);
 	});
